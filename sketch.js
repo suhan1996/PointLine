@@ -52,7 +52,7 @@ function draw() {
 
         // New particle's force is based on mouse movement
         var force = p5.Vector.sub(current, previous);
-        force.mult(0.05);
+        force.mult(0.5);
 
         // Add new particle
         paths[paths.length - 1].add(current, force);
@@ -150,8 +150,8 @@ Particle.prototype.display = function(other) {
         fill(0,0,0, this.lifespan);
         strokeWeight(1);
 
-        triangle(this.position.x+size, this.position.y+size, this.position.x+20+size, this.position.y+10+size, this.position.x+20+size, this.position.y-3+size);
-        ellipse(this.position.x+20*size,this.position.y+20*size,10000/(200+this.lifespan),10000/(200+this.lifespan))
+        triangle(this.position.x+size+this.lifespan, this.position.y+size+this.lifespan, this.position.x+20+size+this.lifespan, this.position.y+this.lifespan+10+size, this.position.x+this.lifespan+20+size, this.position.y-3+size+this.lifespan);
+        ellipse(this.position.x+20*size-this.lifespan,this.position.y+20*size,10000/(200+this.lifespan),10000/(200+this.lifespan))
         //triangle(this.lifespan+noise(-200,1800), this.lifespan+noise(-200,1800), this.position.x+20, this.position.y+10, this.position.x+20, this.position.y-3);
 
 
